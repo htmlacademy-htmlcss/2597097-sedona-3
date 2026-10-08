@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Седона - городок в Аризоне</title>
+    <title>Гостиницы Седоны</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" sizes="32x32">
   </head>
@@ -16,13 +16,13 @@
         </a>
         <nav class="navigation">
           <ul class="navigation-list">
-            <li class="navigation-item navigation-item-current">
-              <a class="navigation-link " href="index.html">Главная</a>
+            <li class="navigation-item">
+              <a class="navigation-link" href="index.html">Главная</a>
             </li>
             <li class="navigation-item">
               <a class="navigation-link" href="#">О Седоне</a>
             </li>
-            <li class="navigation-item">
+            <li class="navigation-item  navigation-item-current">
               <a class="navigation-link" href="catalog.html">Гостиницы</a>
             </li>
           </ul>
@@ -42,87 +42,194 @@
           </li>
         </ul>
       </header>
+
       <main class="main-container" data-test="main">
-        <section class="hero" data-test="hero">
-          <h1 class="visually-hidden">Седона</h1>
-          <img src="images/welcome.svg" width="458" height="352"
-            alt="Welcome to the gorgeous Sedona, because the Grand Canyon sucks!">
+        <section class="catalog-filter">
+          <h1 class="catalog-filter-title">Гостиницы Седоны</h1>
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-home">
+              <a class="breadcrumbs-home-link" href="index.html">
+                <span class="visually-hidden">Главная</span></a>
+            </li>
+            <li class="breadcrumbs-hotels">
+              <a class="breadcrumbs-hotels-link">Гостиницы</a>
+            </li>
+          </ul>
+
+          <form class="hotels-filter" action="https://echo.htmlacademy.ru/" method="get" data-test="filter">
+            <fieldset class="infrastructure">
+              <legend class="infrastructure-title">Инфраструктура:</legend>
+              <ul class="infrastructure-list">
+                <li class="infrastructure-item">
+                  <input type="checkbox" name="pool" id="pool">
+                  <label for="pool">Бассейн</label>
+                </li>
+                <li class="infrastructure-item">
+                  <input type="checkbox" name="parking" id="parking" checked>
+                  <label for="parking">Парковка</label>
+                </li>
+                <li class="infrastructure-item">
+                  <input type="checkbox" name="wifi" id="wifi">
+                  <label for="wifi">Wi-Fi</label>
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset class="type-of-housing">
+              <legend class="type-of-housing-title">Тип Жилья:</legend>
+              <ul class="type-of-housing-list">
+                <li class="type-of-housing-item">
+                  <input type="radio" name="type-of-housing" value="hotel" id="hotel">
+                  <label for="hotel">Гостиница</label>
+                </li>
+                <li class=" type-of-housing-item">
+                  <input type="radio" name="type-of-housing" id="motel" value="motel" checked>
+                  <label for="motel">Мотель</label>
+                </li>
+                <li class="type-of-housing-item">
+                  <input type="radio" name="type-of-housing" id="apartments" value="apartments">
+                  <label for="apartments">Апартаменты</label>
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset class="cost">
+              <legend class="cost-title">Стоимость, <span>₽</span>:</legend>
+              <div class="range">
+                <div class="range-wrapper-inputs">
+                  <label class="range-wrapper-input">
+                    <input class="range-input" type="number" name="min-price" placeholder="0" value="0">
+                  </label>
+                  <label class="range-wrapper-input">
+                    <input class="range-input" type="number" name="max-price" placeholder="9000" value="9000">
+                  </label>
+                </div>
+                <div class="range-scale">
+                  <div class="range-bar" style="left: 0; width: 226px">
+                    <button type="button" class="range-toggle range-toggle-min" style="left: 0"><span
+                        class="visually-hidden">Измените минимальную стоимость</span></button>
+                    <button type="button" class="range-toggle range-toggle-max" style="left: 207px"><span
+                        class="visually-hidden">Измените максимальную стоимость</span></button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="hotel-filter-buttons">
+              <button class="hotels-filter-btn" type="submit">Применить</button>
+              <button class="hotels-filter-btn-reset" type="reset">Сбросить</button>
+            </div>
+          </form>
         </section>
 
-        <section class="reasons" data-test="advantages">
-          <div class="reasons-section-description">
-            <h2 class="reasons-title">Седона — небольшой городок в аризоне, заслуживающий большего!</h2>
-            <p class="reason-text">Рассмотрим причины, по которым Седона круче, чем Гранд-Каньон!</p>
+        <section class="search-result">
+          <div class="result-wrapper">
+            <h2 class="visually-hidden">Результат поиска гостиниц</h2>
+            <p class="search-result-hotels">Найдено гостиниц:
+              <span class="search-result-hotels">38</span>
+            </p>
           </div>
-          <ul class="reasons-list">
-            <li class="reasons-item-blue">
-              <div class="reasons-item-title-wrapper">
-                <h3 class="reasons-item-title">Настоящий<br>городок</h3>
-                <p class="reasons-item-text">Седона — не аттракцион для туристов, там течёт своя жизнь</p>
-              </div>
-              <img class="reasons-item-img" src="images/photo-1.jpg" width="800" height="385" alt="Фото города">
+          <select class="search-result-select" name="search-result-select" aria-label="Сортировка">
+            <option value="cheap" selected>Сначала дешевые</option>
+            <option value="expensive">Сначала дорогие</option>
+          </select>
+          <ul class="search-result-view">
+            <li class="search-result-view-item">
+              <a class="view-icons" href="catalog.html?view=tile">
+                <span class="visually-hidden">вид таблицей</span></a>
             </li>
-            <li class="reasons-item">
-              <div class="reasons-item-title-wrapper">
-                <h3 class="reasons-item-title reasons-item-title-nopicture">Небольшая<br>площадь</h3>
-                <p class="reasons-item-text">Все достопримечательности находятся очень близко</p>
-              </div>
+            <li class="search-result-view-item ">
+              <a class="view-cards" href="catalog.html?view=card">
+                <span class="visually-hidden">вид карточкой</span></a>
             </li>
-            <li class="reasons-item-lightblue">
-              <div class="reasons-item-title-wrapper">
-                <h3 class="reasons-item-title reasons-item-title-nopicture">Красивая<br>дорога</h3>
-                <p class="reasons-item-text">Ехать в Седону из Лас-Вегаса<br> совсем не скучно!</p>
-              </div>
-            </li>
-            <li class="reasons-item">
-              <div class="reasons-item-title-wrapper">
-                <h3 class="reasons-item-title reasons-item-title-nopicture">Мало<br>туристов</h3>
-                <p class="reasons-item-text">Большинство едет в Гранд Каньон и толпится там</p>
-              </div>
-            </li>
-            <li class="reasons-item-blue-another">
-              <img class="reasons-item-img" src="images/photo-2.jpg" width="800" height="385" alt="Фото каньона">
-              <div class="reasons-item-title-wrapper">
-                <h3 class="reasons-item-title">Там есть<br> мост дьявола</h3>
-                <p class="reasons-item-text">Да, по нему можно пройти! Если вы осмелитесь, разумеется</p>
-              </div>
+            <li class="search-result-view-item ">
+              <a class="view-list" href="catalog.html?view=list">
+                <span class="visually-hidden">вид списком</span></a>
             </li>
           </ul>
         </section>
 
-        <section class="service" data-test="service">
-          <div class="service-section-description">
-            <h2 class="service-title">Приезжайте в Седону отдохнуть <br> в комфорте и уюте!</h2>
-            <p class="service-text">Опытный персонал и качественное обслуживание!</p>
-          </div>
-          <ul class="service-list">
-            <li class="service-item service-item-home service-item-bg">
-              <h3 class="service-item-title">Жилье</h3>
-              <p class="service-item-text">Рекомендуем пожить<br> в настоящем мотеле,<br> всё как в кино!</p>
+        <section class="catalog" data-test="catalog">
+          <ul class="catalog-list">
+            <li class="catalog-item">
+              <a class="catalog-item-picture" href="#"><img src="images/hotel-1.jpg" width="300" height="212"
+                  alt="Отель Amara Resort & Spa"></a>
+              <a class="catalog-item-title-link" href="#">
+                <h3 class="catalog-item-title">Amara Resort & Spa</h3>
+              </a>
+              <p class="catalog-item-type">Гостиница</p>
+              <p class="catalog-item-price">От 4000 ₽</p>
+              <a class="catalog-item-link" href="#">Подробнее</a>
+              <button class="catalog-item-btn" type="button">В избранное</button>
+              <p class="catalog-item-rating-stars stars-4"><span class="visually-hidden">4 звезды</span></p>
+              <p class="catalog-item-rating">Рейтинг: 8,5</p>
             </li>
-            <li class="service-item service-item-food">
-              <h3 class="service-item-title">Еда</h3>
-              <p class="service-item-text">Всегда заказывайте<br> топовый фирменный бургер,<br> вы не разочаруетесь!</p>
+
+            <li class="catalog-item">
+              <a class="catalog-item-picture" href="#"><img src="images/hotel-2.jpg" width="300" height="212"
+                  alt="Отель Villas at Poco Diablo"></a>
+              <a class="catalog-item-title-link" href="#">
+                <h3 class="catalog-item-title">Villas at Poco Diablo</h3>
+              </a>
+              <p class="catalog-item-type">Гостиница</p>
+              <p class="catalog-item-price">От 5000 ₽</p>
+              <a class="catalog-item-link" href="#">Подробнее</a>
+              <button class="catalog-item-btn catalog-item-btn-chosen" type="button">В избранном</button>
+              <p class="catalog-item-rating-stars stars-4"><span class="visually-hidden">4 звезды</span></p>
+              <p class="catalog-item-rating">Рейтинг: 9,2</p>
             </li>
-            <li class="service-item service-item-gifts service-item-bg">
-              <h3 class="service-item-title">Сувениры</h3>
-              <p class="service-item-text">Не только китайского,<br>но и настоящего местного<br> производства!</p>
+
+            <li class="catalog-item">
+              <a class="catalog-item-picture" href="#"><img src="images/hotel-3.jpg" width="300" height="212"
+                  alt="Отель Desert Quail Inn"></a>
+              <a class="catalog-item-title-link" href="#">
+                <h3 class="catalog-item-title">Desert Quail Inn</h3>
+              </a>
+              <p class="catalog-item-type">Гостиница</p>
+              <p class="catalog-item-price">От 2500 ₽</p>
+              <a class="catalog-item-link" href="#">Подробнее</a>
+              <button class="catalog-item-btn" type="button">В избранное</button>
+              <p class="catalog-item-rating-stars stars-3"><span class="visually-hidden">3 звезды</span></p>
+              <p class="catalog-item-rating">Рейтинг: 6,9</p>
+            </li>
+
+            <li class="catalog-item">
+              <a class="catalog-item-picture" href="#"><img src="images/hotel-4.jpg" width="300" height="212"
+                  alt="Отель GreenTree Inn"></a>
+              <a class="catalog-item-title-link" href="#">
+                <h3 class="catalog-item-title">GreenTree Inn</h3>
+              </a>
+              <p class="catalog-item-type">Гостиница</p>
+              <p class="catalog-item-price">От 1500 ₽</p>
+              <a class="catalog-item-link" href="#">Подробнее</a>
+              <button class="catalog-item-btn" type="button">В избранное</button>
+              <p class="catalog-item-rating-stars stars-2"><span class="visually-hidden">2 звезды</span></p>
+              <p class="catalog-item-rating">Рейтинг: 5,0</p>
+            </li>
+          </ul>
+
+          <ul class="pagination">
+            <li class="pagination-item pagination-item-active">
+              <a class="pagination-link">1</a>
+            </li>
+            <li class="pagination-item">
+              <a class="pagination-link" href="#">2</a>
+            </li>
+            <li class="pagination-item">
+              <a class="pagination-link" href="#">3</a>
+            </li>
+            <li class="pagination-item">
+              <a class="pagination-link" href="#">4</a>
+            </li>
+            <li class="pagination-item"><span>...</span>
+            </li>
+            <li class="pagination-item">
+              <a class="pagination-link" href="#">10</a>
             </li>
           </ul>
         </section>
 
-        <section class="interested" data-test="search">
-          <h2 class="interested-title">Заинтересовались?</h2>
-          <p class="interested-text">Укажите предполагаемые даты поездки, <br> и мы покажем вам лучшие предложения
-            гостиниц в Седоне</p>
-          <button class="search-button" type="button">Поиск гостиницы в Седоне</button>
-        </section>
-
-        <section class="subscribe" data-test="subscribe">
-          <h2 class="subscribe-title">Подпишитесь на рассылку</h2>
-          <p class="subscribe-text">Только полезная информация и никакого спама,<br> честное бойскаутское!</p>
+        <section class="subscribe-catalog" data-test="subscribe">
+          <h2 class="subscribe-catalog-title">Подпишитесь на рассылку</h2>
+          <p class="subscribe-catalog-text">Только полезная информация и никакого спама,<br> честное бойскаутское!</p>
           <form class="subscribe-form" action="https://echo.htmlacademy.ru/" method="post">
-            <label for="email" class="visually-hidden">Введите Ваш e-mail</label>
             <input class="subscribe-input" type="email" name="email" id="email" placeholder="Ваш e-mail" required>
             <button class="subscribe-button" type="submit">Подписаться</button>
           </form>
@@ -199,11 +306,11 @@
         <div class="modal">
           <section class="modal-content">
             <h2 class="modal-title">Поиск гостиницы в Седоне</h2>
-            <form class="modal-filter" action="https://echo.htmlacademy.ru" method="post">
+            <form class="modal-filter" action="http://echo.htmlacademy.ru" method="post">
               <div class="date-in-wrapper">
                 <label class="date-in" for="date-input">Дата Заезда:</label>
                 <input class="date-input date-input-in" type="text" name="date-in" id="date-input"
-                  value="27 апреля 2020" placeholder="Укажите дату" required>
+                  value="27 апреля 2020" placeholder="Укажите дату">
                 <button class="calendar" type="button" aria-label="Открыть календарь">
                   <svg class="calendar-icon" width="16" height="15" viewBox="0 0 16 15" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -235,7 +342,7 @@
               <div class="date-out-wrapper">
                 <label class="date-out" for="date-out">Дата Выезда:</label>
                 <input class="date-input date-input-out" type="text" name="date-out" id="date-out"
-                  value="1 сентября 2023" placeholder="Укажите дату" required>
+                  value="1 сентября 2023" placeholder="Укажите дату">
                 <button class="calendar" type="button" aria-label="Открыть календарь">
                   <svg class="calendar-icon" width="16" height="15" viewBox="0 0 16 15" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +384,8 @@
                     </span>
                     <span class="visually-hidden">Меньше</span>
                   </button>
-                  <input class="quantity" type="number" name="adults" id="adults-quantity" value="2">
+                  <input class="quantity" type="number" name="adults" id="adults-quantity" value="2"
+                    aria-label="Укажите количество взрослых">
                   <button class="more" type="button">
                     <span class="more-icon-wrapper">
                       <svg class="more-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"
@@ -314,7 +422,8 @@
                     </span>
                     <span class="visually-hidden">Меньше</span>
                   </button>
-                  <input class="quantity" type="number" name="childs" id="childs-quantity" value="2">
+                  <input class="quantity" type="number" name="childs" id="childs-quantity" value="2"
+                    aria-label="Укажите количество детей">
                   <button class="more" type="button">
                     <span class="more-icon-wrapper">
                       <svg class="more-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"

@@ -95,12 +95,10 @@
               <legend class="cost-title">Стоимость, <span>₽</span>:</legend>
               <div class="range">
                 <div class="range-wrapper-inputs">
-                  <label class="range-wrapper-input">
-                    <input class="range-input" type="number" name="min-price" placeholder="0" value="0">
-                  </label>
-                  <label class="range-wrapper-input">
-                    <input class="range-input" type="number" name="max-price" placeholder="9000" value="9000">
-                  </label>
+                  <label class="range-wrapper-input-min" for="min-price">от</label>
+                    <input class="range-input" type="number" name="min-price" id="min-price" placeholder="0" value="0">
+                  <label class="range-wrapper-input-max" for="max-price">до</label>
+                    <input class="range-input" type="number" name="max-price" id="max-price" placeholder="9000" value="9000">
                 </div>
                 <div class="range-scale">
                   <div class="range-bar" style="left: 0; width: 226px">
@@ -131,7 +129,7 @@
             <option value="expensive">Сначала дорогие</option>
           </select>
           <ul class="search-result-view">
-            <li class="search-result-view-item">
+            <li class="search-result-view-item search-result-view-current">
               <a class="view-icons" href="catalog.html?view=tile">
                 <span class="visually-hidden">вид таблицей</span></a>
             </li>
